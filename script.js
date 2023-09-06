@@ -18,12 +18,20 @@ function random(max) {
 }
 
 function result(pick){
-    //Affiche le choix du joueur
-    let result = document.getElementById('result')
-    result.innerHTML = "<h1> Player : " + pick + "</h1>"
+    //Display player pick
+    let gamestatus = document.getElementById('pick')
+    gamestatus.innerHTML = "<h1> Player : " + pick + "</h1>"
 
-    //Affiche le choix du bot
+    //Display bot pick
     let picks = ['Rock','Paper','Scissors']
     let botPick = picks[random(3)]
-    result.innerHTML += "<h1> Bot : " + botPick + "</h1>"
+    gamestatus.innerHTML += "<h1> Bot : " + botPick + "</h1>"
+
+    //Game issue
+    let result = document.getElementById('result')
+    if(pick = botPick)result.innerHTML += "<p> Tie </p>"
+    if(pick = "Paper" && botPick == "Rock")result.innerHTML ="<p> Win </p>"
+    if(pick = "Scissors" && botPick == "Paper")result.innerHTML ="<p> Win </p>"
+    if(pick = "Rock" && botPick == "Scissors")result.innerHTML ="<p> Win </p>"
+    //else result.innerHTML = "<p> Lose </p>"
 }
